@@ -238,13 +238,14 @@ exports.loadSync = loadSync;
     // and wrappers. compiler/plugin is excluded in Protobuf.js and here.
     var wellKnownProtos = ['api', 'descriptor', 'source_context', 'type'];
     var protoResolve = require.resolve('protobufjs');
-    var sourceDir = path.join(path.dirname(protoResolve), 'google', 'protobuf');
-    for (var _i = 0, wellKnownProtos_1 = wellKnownProtos; _i < wellKnownProtos_1.length; _i++) {
-        var proto = wellKnownProtos_1[_i];
-        var file = path.join(sourceDir, proto + ".proto");
-        var descriptor_1 = Protobuf.loadSync(file).toJSON();
-        // @ts-ignore
-        Protobuf.common(proto, descriptor_1.nested.google.nested);
-    }
+    console.log('protoResolve:', protoResolve);
+    // const sourceDir = path.join(
+    //     path.dirname(protoResolve), 'google', 'protobuf');
+    // for (const proto of wellKnownProtos) {
+    //   const file = path.join(sourceDir, `${proto}.proto`);
+    //   const descriptor = Protobuf.loadSync(file).toJSON();
+    //   // @ts-ignore
+    //   Protobuf.common(proto, descriptor.nested.google.nested);
+    // }
 }
 //# sourceMappingURL=index.js.map

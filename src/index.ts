@@ -329,15 +329,16 @@ export function loadSync(
   // Protobuf.js exposes: any, duration, empty, field_mask, struct, timestamp,
   // and wrappers. compiler/plugin is excluded in Protobuf.js and here.
   const wellKnownProtos = ['api', 'descriptor', 'source_context', 'type'];
-  const protoResolve = require.resolve('protobufjs')
-  const sourceDir = path.join(
-      path.dirname(protoResolve), 'google', 'protobuf');
+  // const protoResolve = require.resolve('protobufjs')
+  // console.log('protoResolve:', protoResolve)
+  // const sourceDir = path.join(
+  //     path.dirname(protoResolve), 'google', 'protobuf');
 
-  for (const proto of wellKnownProtos) {
-    const file = path.join(sourceDir, `${proto}.proto`);
-    const descriptor = Protobuf.loadSync(file).toJSON();
+  // for (const proto of wellKnownProtos) {
+  //   const file = path.join(sourceDir, `${proto}.proto`);
+  //   const descriptor = Protobuf.loadSync(file).toJSON();
 
-    // @ts-ignore
-    Protobuf.common(proto, descriptor.nested.google.nested);
-  }
+  //   // @ts-ignore
+  //   Protobuf.common(proto, descriptor.nested.google.nested);
+  // }
 }
